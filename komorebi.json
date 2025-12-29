@@ -1,101 +1,135 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.32/schema.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.39/schema.json",
+  
+  // ============================================================================
+  // CONFIGURAÇÕES GERAIS
+  // ============================================================================
+  
   "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  
+  // Comportamento de janelas
+  "window_container_behaviour": "Create", // Como criar containers: "Create" ou "Append"
+  "window_hiding_behaviour": "Cloak", // Como ocultar janelas: "Cloak", "Hide" ou "Minimize"
+  "unmanaged_window_operation_behaviour": "Op", // Comportamento para janelas não gerenciadas
+  "cross_monitor_move_behaviour": "Insert", // Como mover janelas entre monitores: "Insert" ou "Swap"
+  "mouse_follows_focus": false, // Mouse segue janela focada automaticamente
+  "float_override": false, // Permitir override de janelas flutuantes
+  
+  // ============================================================================
+  // ANIMAÇÕES
+  // ============================================================================
+  
   "animation": {
-    "fps": 60,
-    "style": "EaseInOutExpo",
-    "duration": 250,
-    "enabled": false
+    "enabled": true, // Ativar/desativar animações: true ou false
+    "duration": 200, // Duração em ms (valores típicos: 100-500)
+    "fps": 60, // Quadros por segundo (valores: 30, 60, 120)
+    "style": "EaseInOutCirc" // Estilo: "Linear", "EaseInOut", "EaseInOutCirc", etc.
   },
-  "border": false,
-  "border_colours": {
-    "unfocused": "#ffffff",
-    "single": "#ffffff",
-    "monocle": "#ffffff",
-    "stack": "#ffffff"
-  },
-  "border_implementation": "Komorebi",
-  "border_offset": -1,
-  "border_style": "System",
-  "border_width": 0,
-  "cross_monitor_move_behaviour": "Insert",
-  "default_container_padding": 5,
-  "default_workspace_padding": 5,
-  "float_override": false,
+  
+  // ============================================================================
+  // ESPAÇAMENTO E ÁREAS DE TRABALHO
+  // ============================================================================
+  
+  "default_workspace_padding": 5, // Padding externo em pixels (valores típicos: 0-20)
+  "default_container_padding": 5, // Padding entre janelas em pixels (valores típicos: 0-20)
+  
   "global_work_area_offset": {
-    "left": 0,
-    "right": 0,
-    "top": 0,
-    "bottom": 0
+    "left": 20,   // Margem esquerda global em pixels
+    "top": 20,    // Margem superior global em pixels
+    "right": 40,  // Margem direita global em pixels
+    "bottom": 30  // Margem inferior global em pixels
   },
-  "mouse_follows_focus": false,
+  
+  // ============================================================================
+  // BORDAS DAS JANELAS
+  // ============================================================================
+  
+  "border": true, // Ativar/desativar bordas nas janelas
+  "border_width": 5, // Largura da borda em pixels (valores típicos: 1-10)
+  "border_offset": -1, // Offset da borda em pixels (negativo = interno)
+  "border_style": "System", // Estilo: "System", "Rounded", "Square"
+  "border_implementation": "Komorebi", // Implementação: "Komorebi" ou "Windows"
+  
+  // ============================================================================
+  // TEMA VISUAL
+  // ============================================================================
+
+  "theme": {
+      "name": "Ashes", // Nome do tema: "Ashes", "Catppuccin", "Dracula", "Nord", etc.
+      "palette": "Base16", // Paleta de cores: "Base16", "Catppuccin", "Custom"
+      "unfocused_border": "Base03", // Cor da borda de janelas sem foco: Base00-Base0F
+      "bar_accent": "Base0D" // Cor de destaque da barra: Base00-Base0F (azul no Base16)
+},
+  
+  // ============================================================================
+  // ABAS DE AGRUPAMENTO (STACKBAR)
+  // ============================================================================
+  
   "stackbar": {
+    "height": 40, // Altura da barra em pixels (valores típicos: 20-60)
+    "mode": "OnStack", // Quando mostrar: "Always", "OnStack", "Never"
+    "label": "Title", // Rótulo mostrado: "Process", "Title", "Class"
+    
     "tabs": {
-      "unfocused_text": "#ffffff",
-      "font_size": 0,
-      "background": "#ffffff",
-      "width": 300,
-      "font_family": "Segoe UI",
-      "focused_text": "#ffffff"
-    },
-    "height": 40,
-    "label": "Process",
-    "mode": "OnStack"
+      "width": 300, // Largura das abas em pixels
+      "font_family": "Segoe UI", // Fonte: "Segoe UI", "Arial", "Consolas", etc.
+      "font_size": 0, // Tamanho da fonte (0 = automático, valores típicos: 10-16)
+      "background": "#141414", // Cor de fundo das abas: formato hex
+      "focused_text": "#cacaca", // Cor do texto da aba focada
+      "unfocused_text": "#858585" // Cor do texto das abas não focadas
+    }
   },
-  "transparency": false,
-  "transparency_alpha": 225,
-  "unmanaged_window_operation_behaviour": "Op",
-  "window_container_behaviour": "Create",
-  "window_hiding_behaviour": "Cloak",
+  
+  // ============================================================================
+  // TRANSPARÊNCIA
+  // ============================================================================
+  
+  "transparency": false, // Ativar transparência nas janelas inativas
+  "transparency_alpha": 225, // Nível de opacidade (0-255, onde 255 = opaco)
+  
+  // ============================================================================
+  // PREFERÊNCIAS DE MONITORES
+  // ============================================================================
+  
+  // Índices de exibição baseados em serial_number_id de hardware dos monitores, use o comando "komorebic monitor-info" no terminal para obter os IDs
   "display_index_preferences": {
-    "0": "GSM0001-5&27eed4c6&0&UID4352",
-    "1": "GWD2160-5&27eed4c6&0&UID4356",
-    "2": "RTD0000-5&27eed4c6&0&UID4354"
+    "0": "",   // Monitor principal
+    "1": "",    // Segundo monitor
   },
+  
+  // ============================================================================
+  // CONFIGURAÇÃO DOS MONITORES
+  // ============================================================================
+  
   "monitors": [
+    // --- MONITOR 1 (Principal) ---
     {
-      "window_based_work_area_offset_limit": 3,
+      "window_based_work_area_offset_limit": 4,         // Limite de janelas para offset automático, recomendado para monitores grandes ou de altissíma resolução
+      
+      // Offsets específicos deste monitor (sobrescrevem offsets globais)
       "window_based_work_area_offset": {
-        "left": 400,
-        "top": 300,
-        "right": 900,
-        "bottom": 400
+        "left": 400,   // Margem esquerda em pixels
+        "top": 300,    // Margem superior em pixels
+        "right": 900,  // Margem direita em pixels
+        "bottom": 400  // Margem inferior em pixels
       },
+      
+      // Workspaces (áreas de trabalho virtuais) do monitor 1
       "workspaces": [
         {
           "name": "I",
           "layout": "UltrawideVerticalStack"
         },
-
         {
-          "name": "II",
-          "initial_workspace_rules": [
-          { 
-            "kind" : "Class",
-            "id": "Premiere Pro"
-          },
-          {
-            "kind": "Title",
-            "matching_strategy": "Contains",
-            "id": "Adobe After Effects"
-          },
-          {
-            "kind": "Class",
-            "id": "Photoshop"
-          },
-          {
-            "kind": "Class",
-            "id": "Illustrator"
-          }
-          ]
+          "name": "II"  // Sem layout definido = Janelas não serão organizadas automaticamente
         },
         {
           "name": "III",
-          "layout": "HorizontalStack"
+          "layout": "Scrolling" 
         },
         {
           "name": "IV",
-          "layout": "UltrawideVerticalStack"
+          "layout": "Columns"
         },
         {
           "name": "V",
@@ -111,98 +145,37 @@
         }
       ]
     },
+    
+    // --- MONITOR 2 (Secundário) ---
     {
       "workspaces": [
         {
           "name": "1",
           "layout": "Grid"
-        }
-      ]
-    },
-    {
-      "workspaces": [
+        },
         {
-          "name": "1",
-          "layout": "Rows"
+          "name": "2",
+          "layout": "Grid" 
         }
       ]
     }
   ],
+  
+  // ============================================================================
+  // REGRAS DE IGNORAR JANELAS
+  // ============================================================================
+  // Janelas que o Komorebi NÃO deve gerenciar (permanecem flutuantes)
+  
   "ignore_rules": [
     {
-      "kind": "Title",
-      "matching_strategy": "Contains",
-      "id": "Install"
+      "kind": "Title", // "Title", "Exe", "Class", "Path"
+      "matching_strategy": "Contains", // "Contains", "Equals", "Regex", "StartsWith", "EndsWith"
+      "id": "Install" // Ignora janelas com "Install" no título
     },
     {
       "kind": "Title",
       "matching_strategy": "Equals",
-      "id": "WHKD Keybinds"
-    },
-    {
-      "kind": "Class",
-      "matching_strategy": "Equals",
-      "id": "Qt663QWindowToolSaveBits"
-    },
-    {
-      "kind": "Title",
-      "matching_strategy": "Contains",
-      "id": "SceneTree"
-    },
-    {
-      "kind": "Title",
-      "matching_strategy": "Contains",
-      "id": "setup"
-    },
-    {
-      "kind": "Title",
-      "matching_strategy": "Contains",
-      "id": "VMware"
-    },
-    {
-      "kind": "Exe",
-      "matching_strategy": "Equals",
-      "id": "Photoshop.exe"
-    },
-    {
-      "kind": "Exe",
-      "matching_strategy": "Equals",
-      "id": "Writing Tools.exe"
-    },
-    {
-      "kind": "Exe",
-      "matching_strategy": "Equals",
-      "id": "ChatGPT.exe"
-    },
-    {
-      "kind": "Exe",
-      "matching_strategy": "Equals",
-      "id": "CopilotNative.exe"
-    },
-    {
-      "kind": "Exe",
-      "matching_strategy": "Contains",
-      "id": "PowerToys."
-    },
-    {
-      "kind": "Exe",
-      "matching_strategy": "Equals",
-      "id": "Bitwarden.exe"
-    }
-  ],
-  "floating_applications": [
-    {
-      "kind": "Class",
-      "id": "Premiere Pro"
-    },
-    {
-      "kind": "Title",
-      "matching_strategy": "Contains",
-      "id": "Adobe After Effects"
-    },
-    {
-      "kind": "Class",
-      "id": "Photoshop"
+      "id": "WHKD Keybinds" // Ignora janela exata "WHKD Keybinds"
     }
   ]
 }
