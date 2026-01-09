@@ -5,3 +5,13 @@ Esse repositório é para divulgar minhas configurações recomendadas para o pr
 Visite o tutorial abaixo para entender como ele funciona!
 
 https://youtu.be/vHB4yko1skc?si=eUOzNb_h5M9SQwnx
+
+--------------
+
+Conheça tambem meus outros repositórios:
+
+[Configuraçoes do Yasb
+](https://github.com/winchestercanal/Yasb)
+
+[Script de Backup de drivers automatico
+](https://github.com/winchestercanal/driverbackup)
