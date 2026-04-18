@@ -54,6 +54,33 @@ C:\Users\SEU_USUÁRIO\
 
 ---
 
+⌨️ Atalhos de Teclado (Opcional)
+
+De forma opcional, este repositório também inclui um arquivo de configuração do whkd, contendo atalhos de teclado definidos com foco em simplicidade e praticidade.
+
+O uso deste arquivo não é obrigatório, é você pode continuar usando os atalhos padrões ou um padrão que você mesmo tenha criado, mas caso deseje utilizar o meu:
+
+- Certifique-se de que o whkd esteja instalado em seu sistema
+- Substitua o arquivo original pelo disponibilizado neste repositório
+
+O arquivo deve ser colocado no diretório:
+```
+%USERPROFILE%\.config
+```
+
+---
+
+⚠️ Atalho adicional de encerramento forçado
+
+Minhas configurações incluem também um atalho extra [Alt+Shift+Q] para forçar o encerramento de aplicativos, útil em situações onde o software não responde e o fechamento convencional não é suficiente.
+
+Para que esse atalho funcione corretamente é necessário adicionar o script "kill-focuses-windows.ps1" na mesma pasta do whkd:
+```
+%USERPROFILE%\.config
+```
+
+---
+
 ## 🎥 Tutorial
 
 <div align="center">
